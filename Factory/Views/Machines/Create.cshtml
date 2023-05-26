@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Add a new Machine</h4>
+<hr />
+
+<p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  <p>Type of Machine: @Html.TextBoxFor(model => model.MachineName)</p>
+  <p>Model of the Machine: @Html.TextBoxFor(model => model.MachineModel)</p>
+  <p>Description about Problem: @Html.TextBoxFor(model => model.MachineDescription)</p>
+     
+  <input type="submit" value="Add Ticket"/>
+}
+<br>
+<p>@Html.ActionLink("Show Machines", "Index")</p>

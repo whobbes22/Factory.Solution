@@ -18,8 +18,8 @@ namespace Factory.Controllers
     
     public ActionResult Index()
     {
-      //return View(_db.Machines.ToList());
-      return View();
+      return View(_db.Machines.ToList());
+      //return View();
     }
     
     public ActionResult Details(int id)

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Edit this Machine: @Html.DisplayFor(model => model.MachineName)</h4>
+
+<p>@Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+
+@using (Html.BeginForm())
+{
+  <p>Type of Machine: @Html.EditorFor(model => model.MachineName)</p>
+  <p>Model of the Machine: @Html.EditorFor(model => model.MachineModel)</p>
+  <p>Description about Problem: @Html.EditorFor(model => model.MachineDescription)</p>
+    
+  <input type="submit" value="Edit Ticket"/>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
