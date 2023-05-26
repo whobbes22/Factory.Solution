@@ -34,7 +34,7 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-     
+    
       return View();
     }
 
@@ -56,7 +56,7 @@ namespace Factory.Controllers
     public ActionResult AddMachine(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View(thisEngineer);
       
     }

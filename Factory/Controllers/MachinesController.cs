@@ -54,10 +54,10 @@ namespace Factory.Controllers
       }
     }
 
-    public ActionResult AddStudent(int id)
+    public ActionResult AddEngineer(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "MachineName");
       return View(thisMachine);
       
     }

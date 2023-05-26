@@ -18,13 +18,13 @@ namespace Factory.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
-        // Film[] films = _db.Films.ToArray();
-        // Actor[] actors = _db.Actors.ToArray();
-        // Dictionary<string,object[]> model = new Dictionary<string, object[]>();
-        // model.Add("films", films);
-        // model.Add("actors", actors);
-        // return View(model);
-        return View();
+        Machine[] machines = _db.Machines.ToArray();
+        Engineer[] engineers = _db.Engineers.ToArray();
+        Dictionary<string,object[]> model = new Dictionary<string, object[]>();
+        model.Add("engineers", engineers);
+        model.Add("machines", machines);
+        return View(model);
+  
       }
     }
 }
