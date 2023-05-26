@@ -1,0 +1,40 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Engineer
+
+<div class="card">
+  <div class="card-header">
+    <h2>Engineer Details</h2>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">Engineer Type: @Html.DisplayFor(model => model.EngineerName)</h3>
+    <h4 class="card-subtitle mb-2 text-muted">Engineer Description: @Html.DisplayFor(model => model.EngineerDescription)</h4> 
+
+    @if(@Model.JoinEntities.Count == 0)
+    {
+      <p>This Engineer has no jobs - what a slacker!</p>
+    }
+    else
+    {
+      <h4>@Html.DisplayFor(model => model.EngineerName) has the following jobs: </h4>
+      <ul>
+        @foreach(MachineEngineer join in Model.JoinEntities)
+        {
+          <li>@Html.ActionLink($"{join.Machine.MachineId}", "Details", "Machines", new { id = join.Machine.MachineId})</li>
+        }
+      </ul>
+    }
+
+  </div>
+</div>
+      <p>@Html.ActionLink("Back to Engineers", "Index", null, new { @class = "btn btn-secondary mb-2" })</p>
+      @* <p>@Html.ActionLink("Add a film for this actor", "AddFilm", new { id = Model.ActorId }, new { @class = "btn btn-primary mb-2" })</p> *@
+      <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId }, new { @class = "btn btn-warning mb-2" })</p>
+      <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.EngineerId }, new { @class = "btn btn-danger mb-2" })</p>
+      @* <p>@Html.ActionLink("Add new Engineer", "Create", "Films", null, new { @class = "btn btn-success" })</p> *@
+    
+  
+
