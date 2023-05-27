@@ -24,7 +24,7 @@
       <ul>
         @foreach(MachineEngineer join in Model.JoinEntities)
         {
-          <li>@Html.ActionLink($"{join.Engineer.EngineerId}", "Details", "Engineers", new { id = join.Engineer.EngineerId})</li>
+          <li>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = join.Engineer.EngineerId})</li>
         }
       </ul>
     }
