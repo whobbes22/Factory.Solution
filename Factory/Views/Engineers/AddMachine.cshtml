@@ -10,9 +10,9 @@ Layout = "_Layout";
 {
 @Html.HiddenFor(model => model.EngineerId)
 
-<p>Machine</p>
-@* @Html.Label("Machine")  *@
- @Html.DropDownList("EngineerId") 
+<p>Add Machine: @Html.DropDownList("MachineId")</p>
+
+
 
 <input type="submit", value="Add"/>
 }  
