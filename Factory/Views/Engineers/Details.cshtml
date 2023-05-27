@@ -10,7 +10,7 @@
     <h2>Engineer Details</h2>
   </div>
   <div class="card-body">
-    <h3 class="card-title">Engineer Type: @Html.DisplayFor(model => model.EngineerName)</h3>
+    <h3 class="card-title">Engineer Name: @Html.DisplayFor(model => model.EngineerName)</h3>
     <h4 class="card-subtitle mb-2 text-muted">Engineer Description: @Html.DisplayFor(model => model.EngineerDescription)</h4> 
 
     @if(@Model.JoinEntities.Count == 0)
@@ -24,6 +24,9 @@
         @foreach(MachineEngineer join in Model.JoinEntities)
         {
           <li>@Html.ActionLink($"{join.Machine.MachineName}", "Details", "Machines", new { id = join.Machine.MachineId})</li>
+
+          @Html.Hidden("joinId",@join.MachineEngineerId)
+          <input type="submit" value="Remove Machine">
         }
       </ul>
     }
